@@ -1,0 +1,17 @@
+---
+- hosts: databases
+  become: yes
+  tasks:
+    - name: copy file to target server
+      copy:
+        src: /opt/program1.sh
+        dest: /home/ansible/program1.sh
+        mode: 0755
+
+    - name: add line containing hostname to the file if the line isn't there yet
+      lineinfile:
+        state: present
+        dest: /home/ansible/program1.sh
+        regexp: '^hostname2='
+        line: hostname2={{ ansible_hostname }}
+ 

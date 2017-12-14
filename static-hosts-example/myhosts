@@ -1,0 +1,8 @@
+[databases]
+emgperez3.mylabserver.com ansible_user=user
+
+[other]
+emgperez6.mylabserver.com
+
+
+

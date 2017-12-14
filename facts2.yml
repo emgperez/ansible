@@ -1,0 +1,5 @@
+---
+- hosts: local
+  tasks:
+    - debug:
+        msg: "Personal and private facts are {{ ansible_local.preference.general }}"

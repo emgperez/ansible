@@ -1,0 +1,14 @@
+---
+- hosts: databases
+  become: yes
+  tasks:
+    
+    - user:
+        name: newuser
+        comment: "new user"
+    
+    - name: upload file to target if it doesn't exist
+      copy:
+        src: /opt/program1.sh
+        dest: /home/newuser/program1.sh
+        mode: 0755

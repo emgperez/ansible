@@ -1,0 +1,10 @@
+---
+- hosts: databases
+  tasks:
+
+    - name: copy hosts file
+      copy: src=/etc/ansible/hosts dest=/home/ansible
+      register: copy_output
+      
+    - debug:
+        msg: "Copy output - {{ copy_output }}"

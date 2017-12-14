@@ -1,0 +1,15 @@
+---
+- hosts: databases
+  become: yes
+  tasks:
+
+    - name: Install package
+      yum: 
+        name: "{{ item }}"
+        state: installed
+      with_items:
+        - httpd
+        - php
+        - php-mysql
+        - elinks
+    

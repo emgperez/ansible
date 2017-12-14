@@ -1,0 +1,13 @@
+---
+- hosts: databases
+  become: yes
+  tasks:
+    - user:
+        name: newuser2
+        comment: "newuser2"
+      
+    - name: Copy file
+      copy:
+        src: /opt/program1.sh
+        dest: /home/ansible
+        mode: 0755

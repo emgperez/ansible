@@ -1,0 +1,12 @@
+---
+- hosts: databases
+  tasks:
+    - shell: cat /etc/motd
+      register: motd_contents
+
+    - debug:
+        msg: "STDOUT - {{ motd_contents.stdout }}"
+
+    - debug:
+        msg: "MOTD IS EMPTY"
+      when: motd_contents == ""
