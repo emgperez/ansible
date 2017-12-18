@@ -1,0 +1,10 @@
+--- # Lookup playbook example
+#
+- hosts: databases
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - debug:
+        msg: "{{ lookup('env','HOME') }} is the value listed"
