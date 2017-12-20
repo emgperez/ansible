@@ -16,7 +16,12 @@
   tasks:
     - name: Install Apache Web Server
       action: yum name=httpd state=installed
+      async: 300
+      poll: 3
       notify: Restart HTTPD
+      
+    - name: Install {{ pkg_name }}
+      action: yum name={{ pkg_name }} state=installed
 
   handlers:
     - name: Restart HTTPD

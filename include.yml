@@ -1,0 +1,11 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - include_tasks: plays/packages.yml
+
+    - name: Verify the telnet package is installed
+      raw: yum list installed | grep telnet > /home/ansible/pkgs.log
