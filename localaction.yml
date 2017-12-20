@@ -1,0 +1,12 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+  tasks:
+    - name: Ping appserver before running the installation
+      local_action: command ping -c 4 "{{ ansible_hostname }}"
+   
+    - name: Install elinks on remote server
+      yum: pkg=elinks state=latest
