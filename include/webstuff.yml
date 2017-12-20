@@ -1,0 +1,12 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  vars_files:
+    - variables/variables.yml
+  tasks:
+    - include_tasks: packages/packages.yml
+    - include_tasks: commands/commands.yml
+  handlers:  
+    - import_tasks: handlers/handler.yml
