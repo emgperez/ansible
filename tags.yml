@@ -1,0 +1,19 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install telnet and elinks packages
+      yum: pkg={{ item }} state=latest
+      with_items:
+        - telnet
+        - elinks
+      tags:
+        - packages
+    
+    - name: Verify that telnet was installed
+      raw: yum list installed | grep telnet > /home/ansible/pkg.log
+      tags:
+        - verification
