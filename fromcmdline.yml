@@ -1,0 +1,12 @@
+---
+- hosts: "{{ servers }}"
+  user: "{{ user }}"
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install package {{ pkg }}
+      yum: pkg={{ pkg }} state=latest
+     
+  
+ 
