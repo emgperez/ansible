@@ -1,0 +1,16 @@
+---
+- hosts: appserver
+  become: yes
+  user: ansible
+  gather_facts: no
+  tasks:
+    - name: Install HTTPD
+      action: yum name=httpd state=installed
+      
+    - name: Pausing
+      pause:
+        prompt: "Make sure the installation is complete..."
+ 
+    - name: Verify elinks installation
+      action: yum name=elinks state=present
+      
