@@ -10,7 +10,8 @@
     - name: Pausing
       pause:
         prompt: "Make sure the installation is complete..."
- 
+        seconds: 3
+  
     - name: Verify elinks installation
       action: yum name=elinks state=present
       
