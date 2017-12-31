@@ -1,0 +1,8 @@
+---
+- hosts: aptserver
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Install Apache Web Server
+      apt: name=apache2 state=present
