@@ -6,3 +6,6 @@
   tasks:
     - name: Install Apache Web Server
       apt: name=apache2 state=present
+
+    - name: Update system
+      apt: update_cache=yes
