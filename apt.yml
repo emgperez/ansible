@@ -7,5 +7,9 @@
     - name: Install Apache Web Server
       apt: name=apache2 state=present
 
-    - name: Update system
+    - name: Equivalent of update system
       apt: update_cache=yes
+
+    - name: Equivalent of upgrade system
+      apt: upgrade=dist 
+   
