@@ -1,0 +1,12 @@
+---
+- hosts: appserver
+  become: yes
+  user: ansible
+  connection: ssh
+  tasks:
+    - name: Install web server
+      action: yum name=httpd state=installed
+     
+    - name: Start web server
+      service: name=httpd state=restarted
+    
