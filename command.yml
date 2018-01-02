@@ -1,0 +1,11 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Check for python packages
+      command: /home/ansible/testing/test.sh
+      args:
+        chdir: /home/ansible/testing
