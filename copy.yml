@@ -1,0 +1,11 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Copy from the files directory test file
+      action: copy src=files/test1.txt dest=/home/ansible/test1.txt owner=ansible group=ansible mode=0644 backup=yes
+
+ 
