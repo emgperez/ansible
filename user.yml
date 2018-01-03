@@ -1,0 +1,12 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Add the user called testapache to the apache web client
+      user: name=testapache comment="Test Apache user" group=wheel
+
+    - name: Add the user called testapache2 to the apache web client
+      user: name=testapache2 comment="Test Apache user 2" shell=/bin/bash
