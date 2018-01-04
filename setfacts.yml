@@ -1,0 +1,18 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  vars:
+    playbook_version: 0.1
+  tasks:
+    - name: Local Variable Display
+      set_fact:
+        singlefact: Anything
+
+    - debug:
+        msg: "{{ playbook_version }}"
+    
+    - debug:
+        msg: "{{ singlefact }}"
