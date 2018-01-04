@@ -1,0 +1,12 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install python2 and python2-dnf
+      raw: dnf -y install python2 python2-dnf
+
+    - name: Installing apache web server with DNF
+      dnf: name=httpd state=latest
