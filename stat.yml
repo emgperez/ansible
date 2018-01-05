@@ -1,0 +1,14 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Does a file/directory in a path exist or not?
+      stat: path=/home/ansible/abc
+      register: p
+   
+    - debug:
+        msg: "The path exists and is a directory"
+      when: p.stat.isdir is defined and p.stat.isdir
