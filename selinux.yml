@@ -1,0 +1,9 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Change SELinux configuration to permissive
+      selinux: state=disabled
