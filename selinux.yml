@@ -6,4 +6,4 @@
   gather_facts: no
   tasks:
     - name: Change SELinux configuration to permissive
-      selinux: state=disabled
+      selinux: policy=targeted state=permissive
