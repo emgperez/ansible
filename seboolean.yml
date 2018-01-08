@@ -1,0 +1,9 @@
+---
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: change boolean for anonymous writes on the web server
+      seboolean: name=httpd_anon_write state=yes persistent=yes
