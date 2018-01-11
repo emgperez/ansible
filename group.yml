@@ -6,5 +6,5 @@
   gather_facts: no
   tasks:
     - name: Add a new group called newgroup
-      group: name=newgroup state=present
+      group: name=newgroup state=absent
 

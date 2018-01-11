@@ -1,0 +1,13 @@
+---
+- hosts: single
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: Send an email to the user indicating build completion
+      mail:
+        host='localhost'
+        port=25
+        to="ansible"
+        subject="Our host is finished deploying"
+        body="System called {{ ansible_hostname }}"
