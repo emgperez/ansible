@@ -7,6 +7,10 @@
   tasks:
     - name: Install a dependency needed for apt_repository
       apt: pkg=python-apt state=latest
-  
+ 
+    - name: Add the required key
+      apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
+ 
     - name: Add the google repo for Ubuntu
       apt_repository: repo='deb http://dl.google.com/linux/deb/ stable main non-free' state=present
+
