@@ -1,0 +1,12 @@
+---
+- hosts: single
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: no
+  tasks:
+    - name: Install a dependency needed for apt_repository
+      apt: pkg=python-apt state=latest
+  
+    - name: Add the google repo for Ubuntu
+      apt_repository: repo='deb http://dl.google.com/linux/deb/ stable main non-free' state=present
