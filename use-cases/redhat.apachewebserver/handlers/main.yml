@@ -1,0 +1,10 @@
+---
+# handlers file for redhat.apachewebserver
+#
+- name: StartHTTPD
+  service: name={{ apache_pkg }} state=started
+- name: TestHTTPD
+  shell: curl http://{{ apache_fqdn }}
+  register: result
+- name: DisplayResults
+  debug: var=result
