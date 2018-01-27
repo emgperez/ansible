@@ -1,0 +1,16 @@
+--- # master playbook to install apache
+
+- hosts: appserver
+  user: ansible
+  become: yes
+  connection: ssh
+  pre_tasks:
+    - name: When did the role start
+      raw: date > /home/ansible/startofrole.log
+
+  roles:
+    - redhat.apachewebserver
+
+  post_tasks:
+    - name: When did the role end
+      raw: date > /home/ansible/endofrole.log
