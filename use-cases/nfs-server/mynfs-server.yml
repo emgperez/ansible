@@ -62,13 +62,9 @@
       delegate_to: 127.0.0.1
 
     - name: Mount the filesystem on the client from the NFS server
-      shell: mount -t nfs empgerez6.mylabserver.com:/var/share /mnt/remote
-      register: result
-      delegate_to: 127.0.0.1
+      mount: name=/mnt/remote src=/var/share state=present
+      delegate_to: 127.0.0.1    
 
-    - name: Show the client mount result
-      debug: var=result
-    
     # End of delegations
    
 
