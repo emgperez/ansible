@@ -62,7 +62,7 @@
       delegate_to: 127.0.0.1
 
     - name: Mount the filesystem on the client from the NFS server
-      mount: name=/mnt/remote src=/var/share state=present
+      mount: name=/mnt/remote src=/var/share fstype=nfs state=present
       delegate_to: 127.0.0.1    
 
     # End of delegations
