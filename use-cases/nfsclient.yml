@@ -1,6 +1,6 @@
 --- # master playbook for role based nfs client deployments
 
-- hosts: appserver
+- hosts: local
   user: ansible
   become: yes
   connection: ssh
