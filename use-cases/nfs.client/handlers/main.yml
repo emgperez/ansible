@@ -1,2 +1,27 @@
 ---
 # handlers file for nfs.client
+#
+- name: InstallClientPackages
+  yum: pkg={{ item }} state=latest
+  with_items:
+  - "{{ nfsutils_pkg }}"
+  - "{{ nfslibs_pkg }}"
+  notify: StartClientServices
+
+- name: StartClientServices
+  service: name={{ item }} state=started
+  with_items:
+  - "{{ rpcbind_service }}"
+  - "{{ nfslock_service }}"
+  - "{{ nfsmap_service }}"
+
+- name: ClientMountServerResource
+  mount: name=/mnt/remote src=/var/share fstype=nfs state=present
+  register: result
+
+- name: CreateClientMount
+  file: path={{ client_path }} state=directory mode=755
+
+- name: TestServerAvailability
+  debug: var=result
+
