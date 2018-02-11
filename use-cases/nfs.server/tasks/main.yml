@@ -11,9 +11,5 @@
   copy: src=files/exports.template dest=/etc/exports owner=root group=root mode=644
     notify:
     - StartServerServices
-    - InstallClientPackages
-    - CreateClientMountServerResource
-    - ClientMountServerResource
-    - TestServerAvailability
 
 
